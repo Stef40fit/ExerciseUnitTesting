@@ -15,7 +15,7 @@ public class EmailTests
         bool result = Email.IsValidEmail(validEmail);
 
         // Assert
-        Assert.That(result, Is.EqualTo(false));
+        Assert.That(result, Is.EqualTo(true));
     }
 
     [Test]
@@ -35,7 +35,7 @@ public class EmailTests
     public void Test_IsValidEmail_NullInput()
     {
         // Arrange
-        string validEmail = "";
+        string? validEmail = null;
 
         // Act
         bool result = Email.IsValidEmail(validEmail);

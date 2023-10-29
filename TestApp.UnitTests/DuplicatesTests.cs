@@ -49,13 +49,13 @@ public class DuplicatesTests
     [Test]
     public void Test_RemoveDuplicates_AllDuplicates_ReturnsSingleElementArray()
     {
-        int[] numbers = { 1, 2, 2 };
+        int[] numbers = {2, 2, 2 };
 
         // Act
         int[] result = Duplicates.RemoveDuplicates(numbers);
 
         // Assert
-        int[] expected = { 1, 2 };
+        int[] expected = {2 };
         Assert.AreEqual(expected, result);
     }
 }

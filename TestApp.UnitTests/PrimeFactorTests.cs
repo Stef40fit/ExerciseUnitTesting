@@ -7,18 +7,18 @@ public class PrimeFactorTests
     [Test]
     public void Test_FindLargestPrimeFactor_NumberLowerThanTwo()
     { //Arrange
-        long largestFactor = 3;
+        long largestFactor = 1;
         // Act
-        long result = PrimeFactor.FindLargestPrimeFactor(largestFactor);
+        //long result = PrimeFactor.FindLargestPrimeFactor(largestFactor);
         //Assert
-        Assert.That(result, Is.EqualTo(largestFactor));
+        Assert.That(() => PrimeFactor.FindLargestPrimeFactor(largestFactor), Throws.ArgumentException);
     }
 
     [Test]
     public void Test_FindLargestPrimeFactor_PrimeNumber()
     {
         // Arrange
-        long largestFactor = 2;
+        long largestFactor = 5;
         // Act
         long result = PrimeFactor.FindLargestPrimeFactor(largestFactor);
         //Assert
@@ -30,10 +30,10 @@ public class PrimeFactorTests
     {
 
         // Arrange
-        long largestFactor = 7;
+        long largestFactor = 123456789123456789;
         // Act
         long result = PrimeFactor.FindLargestPrimeFactor(largestFactor);
         //Assert
-        Assert.That(result, Is.EqualTo(largestFactor));
+        Assert.That(result, Is.EqualTo(52579));
     }
 }

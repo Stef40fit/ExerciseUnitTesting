@@ -19,16 +19,20 @@ public class MatrixTests
         List<List<int>> result = Matrix.MatrixAddition(matrixA, matrixB);   
 
         // Assert
-        Assert.That(result, Is.EqualTo(expected));
+        //Assert.That(result, Is.EqualTo(expected));
+        CollectionAssert.AreEqual(result, expected);
     }
 
     [Test]
     public void Test_MatrixAddition_EmptyMatrices_ReturnsEmptyMatrix()
     {
         // Arrange
-        List<List<int>> matrixA = new() { new() { }, new() { } };
-        List<List<int>> matrixB = new() { new() { }, new() { } };
-        List<List<int>> expected = new() { new() {}, new() {  } };
+        //List<List<int>> matrixA = new() { new() { }, new() { } };
+        //List<List<int>> matrixB = new() { new() { }, new() { } };
+        //List<List<int>> expected = new() { new() {}, new() {  } };
+        List<List<int>> matrixA = new();
+        List<List<int>> matrixB = new();
+        List<List<int>> expected = new();
 
         // Act
         List<List<int>> result = Matrix.MatrixAddition(matrixA, matrixB);
@@ -44,6 +48,42 @@ public class MatrixTests
         List<List<int>> matrixA = new() { new() { 1, 2 }, new() { 3, 4 } };
         List<List<int>> matrixB = new() { new() { 7, 5, 6 }, new() { 7, 8, 9 } };
         
+
+        // Act &   // Assert
+        Assert.That(() => Matrix.MatrixAddition(matrixA, matrixB), Throws.ArgumentException);
+    }
+
+    [Test]
+    public void Test_MatrixAddition_DifferentDimensions_ThrowsArgumentException1()
+    {
+        // Arrange
+        List<List<int>> matrixA = new() { new() { 1, 2 }, new() { 3, 4 } };
+        List<List<int>> matrixB = new() { new() { 7, 5, 6 }, new() { 7, 8 } };
+
+
+        // Act &   // Assert
+        Assert.That(() => Matrix.MatrixAddition(matrixA, matrixB), Throws.ArgumentException);
+    }
+
+    [Test]
+    public void Test_MatrixAddition_DifferentDimensions_ThrowsArgumentException2()
+    {
+        // Arrange
+        List<List<int>> matrixA = new() { new() { 1, 2 }, new() { 3, 4 } };
+        List<List<int>> matrixB = new() ;
+
+
+        // Act &   // Assert
+        Assert.That(() => Matrix.MatrixAddition(matrixA, matrixB), Throws.ArgumentException);
+    }
+
+    [Test]
+    public void Test_MatrixAddition_DifferentDimensions_ThrowsArgumentException3()
+    {
+        // Arrange
+        List<List<int>> matrixA = new();
+        List<List<int>> matrixB = new() { new() { 1, 2 }, new() { 3, 4 } };
+
 
         // Act &   // Assert
         Assert.That(() => Matrix.MatrixAddition(matrixA, matrixB), Throws.ArgumentException);

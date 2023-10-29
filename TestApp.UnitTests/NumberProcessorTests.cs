@@ -55,22 +55,24 @@ public class NumberProcessorTests
     {
 
         // Arrange
-        List<int> input = new();
-        
+        List<int> input = new() { -1 };
+
 
         // Assert
-        List<double> actual = NumberProcessor.ProcessNumbers(input);
+        //List<double> actual = NumberProcessor.ProcessNumbers(input);
         // Assert
-        CollectionAssert.AreEqual((""), actual);
+        Assert.That(() => NumberProcessor.ProcessNumbers(input), Throws.ArgumentException);
     }
 
         [Test]
     public void Test_ProcessNumbers_EmptyInput()
     {
         // Arrange
-        List<int> input = new() { -1 };
-        // Act       
+        List<int> input = new();
+        // Act
+        List<double> actual = NumberProcessor.ProcessNumbers(input);
         // Assert
-        Assert.That(() => NumberProcessor.ProcessNumbers(input), Throws.ArgumentException);
+        CollectionAssert.AreEqual((""), actual);
+        
     }
 }
